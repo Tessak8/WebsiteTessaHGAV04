@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: white;
 }
 
 h1 {
@@ -10,4 +10,13 @@ h1 {
 p {
   font-family: verdana;
   font-size: 20px;
+}
+
+.headerfoto {
+  display: flex;
+  justify-content: center;
+  background-image: url('/afbeeldingen/uitzicht.jpg');
+  background-size: cover;
+  max-width: 1%;
+  max-height: 1%;
 }
