@@ -13,10 +13,10 @@ p {
 }
 
 .headerfoto {
-  display: flex;
-  justify-content: center;
-  background-image: url('/afbeeldingen/uitzicht.jpg');
+  background-image: url('/afbeeldingen/toscaneuitzicht.jpg');
   background-size: cover;
-  max-width: 1%;
-  max-height: 1%;
+  width: 40%;
+  padding: 10%;
+  margin: 10%;
 }
+
