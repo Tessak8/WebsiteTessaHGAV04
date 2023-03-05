@@ -1,7 +1,13 @@
+* {
+  box-sizing: border-box;
+  font-family: verdana;
+  font-size: medium;
+}
+
 body {
   background-color: white;
 }
-
+ 
 h1 {
   color: white;
   text-align: center;
@@ -12,11 +18,33 @@ p {
   font-size: 20px;
 }
 
-.headerfoto {
-  background-image: url('/afbeeldingen/toscaneuitzicht.jpg');
-  background-size: cover;
-  width: 40%;
-  padding: 10%;
-  margin: 10%;
+.menu {
+  padding: 20px;
 }
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 15px;
+  }
+  
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+
+@media screen and (max-width:600px) {
+.column {
+  width: 100%;
+  }
+  }
+
 
