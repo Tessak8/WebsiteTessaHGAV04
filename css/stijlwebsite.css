@@ -18,33 +18,63 @@ p {
   font-size: 20px;
 }
 
+
+
+.banner {
+  background-image: url(/afbeeldingen/toscanelandschap.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 .menu {
   padding: 20px;
 }
 
 .header {
-  background-color: #F1F1F1;
   text-align: center;
-  padding: 20px;
 }
 
-.column {
-    float: left;
-    width: 50%;
-    padding: 15px;
-  }
-  
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-  }
+.homefoto{
+  max-width: 100%;
+  max-height: 50%;
+}
 
-@media screen and (max-width:600px) {
-.column {
-  width: 100%;
-  }
-  }
+
+.row{
+  width:70vw;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.row.breed {
+width:80vw;
+
+}
+
+.row > .tweekolommen {
+width: 45vw;
+height: 300px;
+margin: 20px;
+margin-bottom: 100px;
+}
+
+.row.breed > .tweekolommen2 {
+width: 40vw;
+height: 350px;
+margin: 20px;
+padding-right: 50px;
+}
+
+.tweekolommen3{
+width: 40vw;
+height: 500px;
+margin: 20px;
+padding-top: 10px;
+padding-right: 50px;
+text-align:center;
+}
+
 
 
