@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: verdana;
+  font-family: 'Roboto Slab', serif;
   font-size: medium;
 }
 
@@ -8,23 +8,24 @@ body {
   background-color: white;
 }
  
-h1 {
-  color: white;
+h1, h2 {
   text-align: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 p {
-  font-family: verdana;
-  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 17px;
 }
 
-
-
-.banner {
-  background-image: url(/afbeeldingen/toscanelandschap.jpg);
-  background-size: cover;
-  background-position: center;
-}
 
 .menu {
   padding: 20px;
@@ -36,13 +37,15 @@ p {
 
 .homefoto{
   max-width: 100%;
-  max-height: 50%;
+  background-image: url(/afbeeldingen/toscanelandschap.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 
 .row{
-  width:70vw;
-  margin: 0 auto;
+  width:80vw;
+  margin: auto;
   text-align: center;
   display: flex;
   flex-wrap: nowrap;
@@ -56,7 +59,7 @@ width:80vw;
 .row > .tweekolommen {
 width: 45vw;
 height: 300px;
-margin: 20px;
+margin: 50px;
 margin-bottom: 100px;
 }
 
@@ -73,7 +76,7 @@ height: 500px;
 margin: 20px;
 padding-top: 10px;
 padding-right: 50px;
-text-align:center;
+text-align: center;
 }
 
 
