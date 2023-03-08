@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+
   </head>
 
 <body>
@@ -43,12 +46,23 @@
 
     <div class="tweekolommen">
         <h2>Eerste kaart</h2>
-        <p>
-            The Elbe delta is the delta of the River Elbe. 
-            In reality, it is not a delta but an estuary. 
-            The River Elbe originates from the Czech Republic, and flows through Germany and finally discharges into the North Sea at Hamburg. 
-            The river is an important means of transport for shipping.
-        </p>
+
+        <div id="map">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+          //initialize the map         
+          const map = L.map('map').setView([41.29246, 12.5736108], 15);
+          //Create baselayer - tiles         
+          const backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
+          attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+          maxZoom: 19});
+
+          backgroundMap.addTo(map);
+
+        </script>
+
+        </div>
+
     </div>
 
   </div>

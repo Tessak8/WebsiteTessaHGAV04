@@ -79,5 +79,8 @@ padding-right: 50px;
 text-align: center;
 }
 
-
+#map { 
+  height: 500px; 
+  width:100%;
+}
 
