@@ -79,8 +79,13 @@ padding-right: 50px;
 text-align: center;
 }
 
-#map { 
+#leafletmap { 
   height: 500px; 
   width:100%;
+}
+
+#openlayersmap {
+  height: 500px;
+  width: 100%;
 }
 
