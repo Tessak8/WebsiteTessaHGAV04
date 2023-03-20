@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
 
 
+
+    <script src="https://cdn.jsdelivr.net/npm/terraformer"></script>
+    <script src="https://unpkg.com/@terraformer/wkt"></script>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">    
+    
+
+
   </head>
 
 <body>
@@ -50,18 +58,6 @@
 
         <div id="leafletmap">
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-        <script>
-          //initialize the map         
-          const map = L.map('leafletmap').setView([41.29246, 12.5736108], 6);
-          //Create baselayer - tiles         
-          const backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
-          attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-          maxZoom: 19});
-
-          backgroundMap.addTo(map);
-
-        </script>
-
         </div>
 
     </div>
@@ -91,11 +87,38 @@
 
   </div>
 
+
+  <div class="row">
+    <div class="tweekolommen">
+        <h2>Tekst over de kaart</h2>
+        <p> 
+            The Niger Delta is the delta of the Niger River. 
+            The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger, Benin and Nigeria. 
+            The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean. 
+            The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the heartbeat of West Africa (WWF, 1986). 
+        </p>
+    </div>
+
+    <div class="tweekolommen">
+        <h2>Derde kaart</h2>
+
+        <div id="esriKaart">
+          
+
+        </div>
+
+    </div>
+
+  </div>
+ 
+
+
+
       <div class="footer"> 
         <p> Hier komt de uitleg van mijn keuzes.</p>
       </div>
 
-
+      <script src="https://js.arcgis.com/4.26/"></script>
       <script src="./javascript/javascriptwebsite.js"> </script>
 
   </body>
