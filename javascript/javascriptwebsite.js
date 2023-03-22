@@ -68,6 +68,8 @@ const openlayersmap = new ol.Map({
     })
 });
 
+
+
 //ESRI kaart
 require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig, Map, MapView) {
 
@@ -84,3 +86,12 @@ require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig,
 		container: "esriKaart" // Div element
 	});
 });
+
+
+//Maplibre kaart
+var maplibrekaart = new maplibregl.Map({
+    container: 'maplibrekaart',
+    style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
+    center: [12.496366, 41.902782], // starting position [lng, lat]
+    zoom: 4.5 // starting zoom
+    });

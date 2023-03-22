@@ -97,5 +97,12 @@ align-items: center;
 
 #esriKaart{
   height: 500px;
-  width:100%;
+  width: 100%;
+}
+
+#maplibrekaart{
+  height: 500px;
+  top: 0; 
+  bottom: 0; 
+  width: 100%
 }
