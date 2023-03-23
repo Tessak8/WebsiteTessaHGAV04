@@ -50,27 +50,107 @@
         )  
     }
 
+    //toevoegen kaartlaag van geoserver
+    L.tileLayer.wms('http://localhost:8001/geoserver/ows?' , {
+        'layers': 'webcartografieHGAV:gemeente_2021_v1',
+        'styles': 'polygon',
+        'srs': 'ESPG:28992',
+        'format': 'image/png',
+        'opacity': 0.5
+
+    }) .addTo(map)
 
 
 
 //openlayersmap
+
+const geojsonObject = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            12.45380081564312,
+            41.90329521702378
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            12.461852157145358,
+            43.93316842817623
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            8.971395849005205,
+            45.968172836006204
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }
+
+const vectorSource = new ol.source.Vector({
+    features: new ol.format.GeoJSON().readFeatures(geojsonObject),
+  });
+
+const style = new ol.style.Style({
+    image : new ol.style.Circle({
+    radius: 5,
+    fill: null,
+    stroke: new ol.style.Stroke({color: 'red', width: 1}),
+  })});
+
+
+const vectorLayer = new ol.layer.Vector({
+    source: vectorSource,
+    style: style
+  });
+
 
 const openlayersmap = new ol.Map({
     target:"openlayersmap",
     layers: [
         new ol.layer.Tile({
             source: new ol.source.OSM( )
-        })
+        }),
+        vectorLayer
     ], 
     view: new ol.View({
         center: ol.proj.fromLonLat([5.84447, 51.04011]), 
         zoom:15
     })
+
+    
 });
 
 
 
-//ESRI kaart
+
+
+
+
+
+
+
+
+
+
+
+  //ESRI kaart
 require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig, Map, MapView) {
 
 	esriConfig.apiKey = "AAPK61fcd36f236d4b558bdc5e3748d5e3b6XgGhr7Sf5chgiF9LX2Oo7wsER2zzWahjRu5bxX4uul_aVJXnJrsrkzFnmRez9_FN";
