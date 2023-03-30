@@ -49,17 +49,39 @@
         
         )  
     }
-
-    //toevoegen kaartlaag van geoserver
-    L.tileLayer.wms('http://localhost:8001/geoserver/ows?' , {
-        'layers': 'webcartografieHGAV:gemeente_2021_v1',
-        'styles': 'polygon',
-        'srs': 'ESPG:28992',
+    
+    //toevoegen kaartlaag van RNDT website WMS digital elevation model
+      var dem = L.tileLayer.wms('https://tinitaly.pi.ingv.it/TINItaly_1_1/ows?' , {
+        'layers': 'tinitaly_dem',
+        'styles': 'raster',
+        'srs': 'EPSG:84',
         'format': 'image/png',
         'opacity': 0.5
+      }) 
 
-    }) .addTo(map)
 
+
+    //toevoegen kaartlaag van RNDT website WMS hillshade
+       var hillshade = L.tileLayer.wms('https://tinitaly.pi.ingv.it/TINItaly_1_1/ows?' , {
+        'layers': 'tinitaly_hshd',
+        'styles': 'raster',
+        'srs': 'EPSG:84',
+        'format': 'image/png',
+        'opacity': 0.5
+       }) 
+
+    //aanmaken van legenda knop in de leaflet met daarin de kaartlagen
+      var overlays = {
+       "Digital elevation model": dem,
+       "Hillshade": hillshade
+      };
+
+    const controls = L.control.layers(overlays,{
+    })
+    
+    controls.addTo(map);
+    controls.expand()
+  
 
 
 //openlayersmap
@@ -104,14 +126,15 @@ const geojsonObject = {
   }
 
 const vectorSource = new ol.source.Vector({
-    features: new ol.format.GeoJSON().readFeatures(geojsonObject),
+  url: './data/italie_plaatsen.geojson',
+  format: new ol.format.GeoJSON(),
   });
 
 const style = new ol.style.Style({
     image : new ol.style.Circle({
-    radius: 5,
+    radius: 1,
     fill: null,
-    stroke: new ol.style.Stroke({color: 'red', width: 1}),
+    stroke: new ol.style.Stroke({color: 'black', width: 15}),
   })});
 
 
@@ -130,8 +153,8 @@ const openlayersmap = new ol.Map({
         vectorLayer
     ], 
     view: new ol.View({
-        center: ol.proj.fromLonLat([5.84447, 51.04011]), 
-        zoom:15
+        center: ol.proj.fromLonLat([12.496366, 41.902782]), 
+        zoom:6
     })
 
     
@@ -166,6 +189,8 @@ require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig,
 		container: "esriKaart" // Div element
 	});
 });
+
+
 
 
 //Maplibre kaart
