@@ -174,23 +174,47 @@ const openlayersmap = new ol.Map({
 
 
   //ESRI kaart
-require(["esri/config", "esri/Map", "esri/views/MapView"], function (esriConfig, Map, MapView) {
+  require(
+    ["esri/config", 
+    "esri/WebMap", 
+    "esri/views/MapView",
+    "esri/widgets/ScaleBar",
+    "esri/widgets/Legend",
+    ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
+    
 
-	esriConfig.apiKey = "AAPK61fcd36f236d4b558bdc5e3748d5e3b6XgGhr7Sf5chgiF9LX2Oo7wsER2zzWahjRu5bxX4uul_aVJXnJrsrkzFnmRez9_FN";
+    esriConfig.apiKey = "AAPK61fcd36f236d4b558bdc5e3748d5e3b6XgGhr7Sf5chgiF9LX2Oo7wsER2zzWahjRu5bxX4uul_aVJXnJrsrkzFnmRez9_FN";
 
-	const esriKaart = new Map({
-		basemap: "arcgis-topographic" // Basemap layer service
-	});
-
-	const view = new MapView({
-		map: esriKaart,
-		center: [5.2213, 51.7160], // Longitude, latitude
-		zoom: 8, // Zoom level
-		container: "esriKaart" // Div element
-	});
-});
+    const esriKaart = new WebMap({
+      portalItem: {
+        id: "389547ea18c34aa78f46fc7b8786a189"
+      }
+    });
 
 
+    const view = new MapView({
+      map: esriKaart,
+      center: [12.496366, 41.902782], // Longitude, latitude
+      zoom: 4, // Zoom level
+      container: "esriKaart" // Div element
+    });
+
+  const scalebar = new ScaleBar({
+    view: view
+  });
+
+  view.ui.add(scalebar, "bottom-right");
+
+  const legend = new Legend ({
+    view: view,
+    style: "card",
+  })
+  
+
+  // Legenda toevoegen ArcGIS kaart
+  view.ui.add(legend, "bottom-left");
+
+  });
 
 
 //Maplibre kaart
