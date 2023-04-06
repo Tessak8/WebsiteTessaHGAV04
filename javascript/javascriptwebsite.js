@@ -11,46 +11,6 @@ const backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z
 backgroundMap.addTo(map);
 
 
-let mijngeojsonlaag = L.geoJSON().addTo(map);
-
-let woonplaatsen = ['Haarlemmermeer', 'Almere', 'Amsterdam'];
-let woonplaatsNaam = woonplaatsen[0];
-//Met de free service een ID ophalen
-fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${woonplaatsNaam}&rows=10`)
-  .then(response => response.json())
-  .then(data => {
-    //Pak het id nr van het eerste object wat terug komt
-    console.log(data.response.docs[0].id);
-    let id = data.response.docs[0].id
-
-    //vraag de data op en zet op de kaart
-    tekenDataopKaart(id);
-  })
-
-//Aan de hand van een ID de geometrie ophalen en op de kaart zetten. En vliegen naar die locatie.
-function tekenDataopKaart(woonplaatsId) {
-  const mijneersteAPIrequest = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/lookup?id=gem-bcb08af4ae8607401e9aa869d4e573c0&wt=json&fl=*'
-
-  fetch(mijneersteAPIrequest, {})
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      console.log(data.response.docs[0].geometrie_ll)
-
-      //Geojson naar Leaflet laag
-      let geojsonFeature = Terraformer.wktToGeoJSON(data.response.docs[0].geometrie_ll);
-      mijngeojsonlaag.addData(geojsonFeature);
-
-      //Center coordinaten voor zoomen naar center
-      let centerCoordinates = Terraformer.wktToGeoJSON(data.response.docs[0].centroide_ll);
-      console.log(centerCoordinates);
-      map.flyTo(centerCoordinates.coordinates.reverse());
-
-    }
-
-    )
-}
-
 //toevoegen kaartlaag van RNDT website WMS digital elevation model
 var dem = L.tileLayer.wms('https://tinitaly.pi.ingv.it/TINItaly_1_1/ows?', {
   'layers': 'tinitaly_dem',
@@ -295,3 +255,57 @@ L.tileLayer.wms('http://localhost:8001/geoserver/ows', {
   'transparent': true,
 
 }).addTo(leafLet);
+
+
+//leafletmap
+//initialize the map         
+const derdeleafletkaart = L.map('leafletmap3').setView([41.29246, 12.5736108], 6);
+//Create baselayer - tiles         
+const backgroundMap3 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+  attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+  maxZoom: 19
+});
+
+backgroundMap3.addTo(derdeleafletkaart);
+
+
+let mijngeojsonlaag = L.geoJSON().addTo(derdeleafletkaart);
+
+let woonplaatsen = ['Haarlemmermeer', 'Almere', 'Amsterdam'];
+let woonplaatsNaam = woonplaatsen[2];
+
+//Met de free service een ID ophalen
+fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${woonplaatsNaam}&rows=10`)
+  .then(response => response.json())
+  .then(data => {
+    //Pak het id nr van het eerste object wat terug komt
+    console.log(data.response.docs[0].id);
+    let id = data.response.docs[0].id
+
+    //vraag de data op en zet op de kaart
+    tekenDataopKaart(id);
+  })
+
+//Aan de hand van een ID de geometrie ophalen en op de kaart zetten. En vliegen naar die locatie.
+function tekenDataopKaart(woonplaatsId) {
+  const mijneersteAPIrequest = `https://api.pdok.nl/bzk/locatieserver/search/v3_1/lookup?id=${woonplaatsId}&wt=json&fl=*`
+
+  fetch(mijneersteAPIrequest, {})
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      console.log(data.response.docs[0].geometrie_ll)
+
+      //Geojson naar Leaflet laag
+      let geojsonFeature = Terraformer.wktToGeoJSON(data.response.docs[0].geometrie_ll);
+      mijngeojsonlaag.addData(geojsonFeature);
+
+      //Center coordinaten voor zoomen naar center
+      let centerCoordinates = Terraformer.wktToGeoJSON(data.response.docs[0].centroide_ll);
+      console.log(centerCoordinates);
+      derdeleafletkaart.flyTo(centerCoordinates.coordinates.reverse());
+
+    }
+
+    )
+}
