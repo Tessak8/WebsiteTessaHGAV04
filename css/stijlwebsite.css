@@ -1,6 +1,6 @@
 * {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'Public Sans', sans-serif;
   font-size: medium;
@@ -9,8 +9,9 @@
 body {
   background-color: white;
 }
- 
-h1, h2 {
+
+h1,
+h2 {
   text-align: center;
   font-family: 'Public Sans', sans-serif;
 }
@@ -33,15 +34,15 @@ p {
   padding: 20px;
 }
 
-#foto{
+#foto {
   max-width: 100%;
-  height:100vh;
+  height: 100vh;
   background-image: url('./../afbeeldingen/toscanelandschap.jpg');
   background-size: cover;
   background-position: center;
 }
 
-#foto h1{
+#foto h1 {
   padding: 300px 20px 20px 100px;
   text-align: left;
   padding-bottom: 20px;
@@ -49,8 +50,8 @@ p {
 
 
 
-.row{
-  width:80vw;
+.row {
+  width: 80vw;
   margin: auto;
   text-align: center;
   display: flex;
@@ -58,36 +59,36 @@ p {
 }
 
 .row.breed {
-width:80vw;
+  width: 80vw;
 
 }
 
-.row > .tweekolommen {
-width: 45vw;
-margin: 50px;
-margin-bottom: 100px;
-align-items: center;
+.row>.tweekolommen {
+  width: 45vw;
+  margin: 50px;
+  margin-bottom: 100px;
+  align-items: center;
 }
 
-.row.breed > .tweekolommen2 {
-width: 40vw;
-margin: 20px;
-padding-right: 50px;
-align-items: center;
+.row.breed>.tweekolommen2 {
+  width: 40vw;
+  margin: 20px;
+  padding-right: 50px;
+  align-items: center;
 }
 
-.tweekolommen3{
-width: 40vw;
-margin: 20px;
-padding-top: 10px;
-padding-right: 50px;
-text-align: center;
-align-items: center;
+.tweekolommen3 {
+  width: 40vw;
+  margin: 20px;
+  padding-top: 10px;
+  padding-right: 50px;
+  text-align: center;
+  align-items: center;
 }
 
-#leafletmap { 
-  height: 500px; 
-  width:100%;
+#leafletmap {
+  height: 500px;
+  width: 100%;
 }
 
 #openlayersmap {
@@ -95,14 +96,19 @@ align-items: center;
   width: 100%;
 }
 
-#esriKaart{
+#esriKaart {
   height: 500px;
   width: 100%;
 }
 
-#maplibrekaart{
+#maplibrekaart {
   height: 500px;
-  top: 0; 
-  bottom: 0; 
+  top: 0;
+  bottom: 0;
   width: 100%
+}
+
+#leafletmap2 {
+  height: 500px;
+  width: 100%;
 }

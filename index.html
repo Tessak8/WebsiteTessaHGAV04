@@ -1,43 +1,46 @@
- <!DOCTYPE html>
- <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <html>
-  <head>
-    <link rel="stylesheet" href="./css/stijlwebsite.css">
-    <title>Scoprire L'Italia</title>  
 
-    <!-- google font inladen voor het lettertype-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<head>
+  <link rel="stylesheet" href="./css/stijlwebsite.css">
+  <title>Scoprire L'Italia</title>
 
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    
-    <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+  <!-- google font inladen voor het lettertype-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 
-    <!-- van geosjon naar leaflet kaart-->
-    <script src="https://cdn.jsdelivr.net/npm/terraformer"></script>
-    <script src="https://unpkg.com/@terraformer/wkt"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
-    <!-- voor de esri kaart-->
-    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">
-    
-     <!-- voor de maplibre kaart-->
-    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet'/>
+  <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+
+  <!--Leaflet kaart-->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <!-- van geosjon naar leaflet kaart-->
+  <script src="https://cdn.jsdelivr.net/npm/terraformer"></script>
+  <script src="https://unpkg.com/@terraformer/wkt"></script>
+
+  <!-- voor de esri kaart-->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">
+
+  <!-- voor de maplibre kaart-->
+  <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+  <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
 
 
-  </head>
+</head>
 
 <body>
 
   <div class="Banner">
     <div class="Menu">
       <header>
-        <img class="logo" src="./afbeeldingen/logowebsite.png" alt="websitelogo" >
+        <img class="logo" src="./afbeeldingen/logowebsite.png" alt="websitelogo">
       </header>
     </div>
 
@@ -46,25 +49,27 @@
     </div>
   </div>
 
- 
+
 
   <div class="row">
     <div class="tweekolommen">
-        <h2>Tekst over de kaart</h2>
-        <p> 
-            The Niger Delta is the delta of the Niger River. 
-            The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger, Benin and Nigeria. 
-            The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean. 
-            The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the heartbeat of West Africa (WWF, 1986). 
-        </p>
+      <h2>Tekst over de kaart</h2>
+      <p>
+        The Niger Delta is the delta of the Niger River.
+        The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger,
+        Benin and Nigeria.
+        The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean.
+        The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the
+        heartbeat of West Africa (WWF, 1986).
+      </p>
     </div>
 
     <div class="tweekolommen">
-        <h2>Eerste kaart</h2>
+      <h2>Eerste kaart</h2>
 
-        <div id="leafletmap">
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-        </div>
+      <div id="leafletmap">
+
+      </div>
 
     </div>
 
@@ -76,17 +81,19 @@
       <h2>Een land in een land?</h2>
 
       <div id="openlayersmap">
-        
-      </div> 
+
+      </div>
     </div>
 
     <div class="tweekolommen">
       <h2>Tekst over de kaart</h2>
-      <p> 
-          The Niger Delta is the delta of the Niger River. 
-          The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger, Benin and Nigeria. 
-          The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean. 
-          The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the heartbeat of West Africa (WWF, 1986). 
+      <p>
+        The Niger Delta is the delta of the Niger River.
+        The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger,
+        Benin and Nigeria.
+        The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean.
+        The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the
+        heartbeat of West Africa (WWF, 1986).
       </p>
 
     </div>
@@ -96,27 +103,29 @@
 
   <div class="row">
     <div class="tweekolommen">
-        <h2>Tekst over de kaart</h2>
-        <p> 
-            The Niger Delta is the delta of the Niger River. 
-            The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger, Benin and Nigeria. 
-            The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean. 
-            The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the heartbeat of West Africa (WWF, 1986). 
-        </p>
+      <h2>Tekst over de kaart</h2>
+      <p>
+        The Niger Delta is the delta of the Niger River.
+        The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger,
+        Benin and Nigeria.
+        The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean.
+        The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the
+        heartbeat of West Africa (WWF, 1986).
+      </p>
     </div>
 
     <div class="tweekolommen">
-        <h2>Derde kaart</h2>
+      <h2>Derde kaart</h2>
 
-        <div id="esriKaart">
-          
+      <div id="esriKaart">
 
-        </div>
+
+      </div>
 
     </div>
 
   </div>
- 
+
 
 
   <div class="row">
@@ -124,17 +133,19 @@
       <h2>Vierde kaart</h2>
 
       <div id="maplibrekaart">
-        
-      </div> 
+
+      </div>
     </div>
 
     <div class="tweekolommen">
       <h2>Tekst over de kaart</h2>
-      <p> 
-          The Niger Delta is the delta of the Niger River. 
-          The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger, Benin and Nigeria. 
-          The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean. 
-          The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the heartbeat of West Africa (WWF, 1986). 
+      <p>
+        The Niger Delta is the delta of the Niger River.
+        The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger,
+        Benin and Nigeria.
+        The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean.
+        The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the
+        heartbeat of West Africa (WWF, 1986).
       </p>
 
     </div>
@@ -143,14 +154,45 @@
 
 
 
-
-    <div class="footer"> 
-        <p> Hier komt de uitleg van mijn keuzes.</p>
+  <div class="row">
+    <div class="tweekolommen">
+      <h2>Tekst over de kaart</h2>
+      <p>
+        The Niger Delta is the delta of the Niger River.
+        The Niger River is one of the largest rivers in Africa and flows through the countries of Guinea, Mali, Niger,
+        Benin and Nigeria.
+        The Niger Delta is located in Nigeria and discharges into the Gulf of Guinea and the Atlantic Ocean.
+        The Niger Delta is located in one of the most densely populated areas of Africa and is often seen as the
+        heartbeat of West Africa (WWF, 1986).
+      </p>
     </div>
 
-    <script src="https://js.arcgis.com/4.26/"></script>
-    <script src="./javascript/javascriptwebsite.js"> </script>
-   
+    <div class="tweekolommen">
+      <h2>vijfde kaart</h2>
 
-  </body>
-  </html> 
+      <div id="leafletmap2">
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  <div class="footer">
+    <p> Hier komt de uitleg van mijn keuzes.</p>
+  </div>
+
+  <script src="https://js.arcgis.com/4.26/"></script>
+  <script src="./javascript/javascriptwebsite.js"> </script>
+
+
+</body>
+
+</html>
