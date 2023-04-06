@@ -229,6 +229,49 @@ const marker = new maplibregl.Marker({
 
 
 
+const popup2 = new maplibregl.Popup({ offset: 25 }).setText(
+  'Florence');
+
+const marker2 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([11.255814, 43.769562])
+  .setPopup(popup2)
+  .addTo(maplibrekaart);
+
+
+
+const popup3 = new maplibregl.Popup({ offset: 25 }).setText(
+  'Venetië');
+
+const marker3 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([12.327145, 45.438759])
+  .setPopup(popup3)
+  .addTo(maplibrekaart);
+
+
+const popup4 = new maplibregl.Popup({ offset: 25 }).setText(
+  'Milaan');
+
+const marker4 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([9.188540, 45.464664])
+  .setPopup(popup4)
+  .addTo(maplibrekaart);
+
+
+const popup5 = new maplibregl.Popup({ offset: 25 }).setText(
+  'Turijn');
+
+const marker5 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([7.742615, 45.116177])
+  .setPopup(popup5)
+  .addTo(maplibrekaart);
 
 
 //Leaflet kaart//
