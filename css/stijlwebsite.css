@@ -22,6 +22,7 @@ h1 {
 
 h2 {
   font-size: 25px;
+  padding-bottom: 15px;
 }
 
 p {
@@ -30,14 +31,44 @@ p {
 }
 
 
-.menu {
-  padding: 20px;
-}
+/*header*/
+
+.header{
+  width: 100%;
+  height: 100vh;
+  padding:0,10%;
+  background: #ffffff ;
+  }
+  
+  .header img{
+      margin-left: 100px;  
+      width: 15%;
+  }
+  
+  nav{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+  }
+  
+  nav ul li{
+      display: inline-block;
+      list-style: none;
+      margin: 10px 20px ;
+  }
+  
+  nav ul li a{
+      text-decoration: none;
+      color:#FF9966 ;
+      font-family: lexend;
+  }
 
 #foto {
   max-width: 100%;
   height: 100vh;
-  background-image: url('./../afbeeldingen/toscanelandschap.jpg');
+  background-image: url('./../afbeeldingen/toscanelandschapverkleind.png');
   background-size: cover;
   background-position: center;
 }
@@ -48,11 +79,13 @@ p {
   padding-bottom: 20px;
 }
 
+/* einde header stijl */
 
-
-.row {
+.row{
   width: 80vw;
   margin: auto;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
   text-align: center;
   display: flex;
   align-items: center;
@@ -65,8 +98,7 @@ p {
 
 .row>.tweekolommen {
   width: 45vw;
-  margin: 50px;
-  margin-bottom: 100px;
+  margin: 40px;
   align-items: center;
 }
 
@@ -85,6 +117,52 @@ p {
   text-align: center;
   align-items: center;
 }
+
+
+.row2 {
+  width: 80vw;
+  margin: auto;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 204, 153, .3);
+  border-radius: 20px;
+}
+
+.row2.breed {
+  width: 80vw;
+
+}
+
+.row2>.tweekolommen2 {
+  width: 45vw;
+  margin: 40px;
+  align-items: center;
+}
+
+.row2.breed>.tweekolommen22 {
+  width: 40vw;
+  margin: 20px;
+  padding-right: 50px;
+  align-items: center;
+}
+
+.tweekolommen32 {
+  width: 40vw;
+  margin: 20px;
+  padding-top: 10px;
+  padding-right: 50px;
+  text-align: center;
+  align-items: center;
+}
+
+
+
+
+
+
 
 #leafletmap, #leafletmap2, #leafletmap3 {
   height: 500px;

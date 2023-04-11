@@ -95,10 +95,9 @@ const style = new ol.style.Style({
   image: new ol.style.Circle({
     radius: 1,
     fill: null,
-    stroke: new ol.style.Stroke({ color: 'black', width: 15 }),
+    stroke: new ol.style.Stroke({ color: '#FF9933', width: 15 }),
   })
 });
-
 
 const vectorLayer = new ol.layer.Vector({
   source: vectorSource,
@@ -116,7 +115,7 @@ const openlayersmap = new ol.Map({
   ],
   view: new ol.View({
     center: ol.proj.fromLonLat([12.496366, 41.902782]),
-    zoom: 6
+    zoom: 5
   })
 
 
@@ -259,17 +258,17 @@ L.tileLayer.wms('http://localhost:8001/geoserver/ows', {
 
 //leafletmap
 //initialize the map         
-const derdeleafletkaart = L.map('leafletmap3').setView([41.29246, 12.5736108], 6);
+const zesdeleafletkaart = L.map('leafletmap3').setView([41.29246, 12.5736108], 6);
 //Create baselayer - tiles         
 const backgroundMap3 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
   maxZoom: 19
 });
 
-backgroundMap3.addTo(derdeleafletkaart);
+backgroundMap3.addTo(zesdeleafletkaart);
 
 
-let mijngeojsonlaag = L.geoJSON().addTo(derdeleafletkaart);
+let mijngeojsonlaag = L.geoJSON().addTo(zesdeleafletkaart);
 
 let woonplaatsen = ['Haarlemmermeer', 'Almere', 'Amsterdam'];
 let woonplaatsNaam = woonplaatsen[2];
@@ -303,7 +302,7 @@ function tekenDataopKaart(woonplaatsId) {
       //Center coordinaten voor zoomen naar center
       let centerCoordinates = Terraformer.wktToGeoJSON(data.response.docs[0].centroide_ll);
       console.log(centerCoordinates);
-      derdeleafletkaart.flyTo(centerCoordinates.coordinates.reverse());
+      zesdeleafletkaart.flyTo(centerCoordinates.coordinates.reverse());
 
     }
 
