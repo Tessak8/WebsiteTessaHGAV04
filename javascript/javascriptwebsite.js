@@ -45,6 +45,8 @@ controls.expand()
 
 
 
+
+
 //openlayersmap
 
 const geojsonObject = {
@@ -176,61 +178,116 @@ var maplibrekaart = new maplibregl.Map({
 
 })
 
-const popup = new maplibregl.Popup({ offset: 25 }).setText(
-  'Rome');
+const popup1 = new maplibregl.Popup({ offset: 25 }).setText(
+  '1. Venetië');
 
-const marker = new maplibregl.Marker({
+const marker1 = new maplibregl.Marker({
   color: '##2596be'
 })
-  .setLngLat([12.496365500000024, 41.90278349999999])
-  .setPopup(popup)
+  .setLngLat([12.327145, 45.438759])
+  .setPopup(popup1)
   .addTo(maplibrekaart);
 
-
-
 const popup2 = new maplibregl.Popup({ offset: 25 }).setText(
-  'Florence');
+  '2. Bolzano');
 
 const marker2 = new maplibregl.Marker({
   color: '##2596be'
 })
-  .setLngLat([11.255814, 43.769562])
+  .setLngLat([11.350000, 46.500000])
   .setPopup(popup2)
   .addTo(maplibrekaart);
 
 
-
 const popup3 = new maplibregl.Popup({ offset: 25 }).setText(
-  'Venetië');
+  '3. Rome');
 
 const marker3 = new maplibregl.Marker({
   color: '##2596be'
 })
-  .setLngLat([12.327145, 45.438759])
+  .setLngLat([12.496365500000024, 41.90278349999999])
   .setPopup(popup3)
   .addTo(maplibrekaart);
 
 
+
 const popup4 = new maplibregl.Popup({ offset: 25 }).setText(
-  'Milaan');
+  '4. Trento');
 
 const marker4 = new maplibregl.Marker({
   color: '##2596be'
 })
-  .setLngLat([9.188540, 45.464664])
+  .setLngLat([11.116667, 46.066666])
   .setPopup(popup4)
   .addTo(maplibrekaart);
 
 
+
 const popup5 = new maplibregl.Popup({ offset: 25 }).setText(
-  'Turijn');
+  '5. Verona');
 
 const marker5 = new maplibregl.Marker({
   color: '##2596be'
 })
-  .setLngLat([7.742615, 45.116177])
+  .setLngLat([10.983333, 45.433334])
   .setPopup(popup5)
   .addTo(maplibrekaart);
+
+
+const popup6 = new maplibregl.Popup({ offset: 25 }).setText(
+  '6. Rimini');
+
+const marker6 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([12.568333, 44.059444])
+  .setPopup(popup6)
+  .addTo(maplibrekaart);
+
+
+const popup7 = new maplibregl.Popup({ offset: 25 }).setText(
+  '7. Milaan');
+
+const marker7 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([9.188540, 45.464664])
+  .setPopup(popup7)
+  .addTo(maplibrekaart);
+
+
+const popup8 = new maplibregl.Popup({ offset: 25 }).setText(
+  '8. Florence');
+
+const marker8 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([11.255814, 43.769562])
+  .setPopup(popup8)
+  .addTo(maplibrekaart);
+
+
+const popup9 = new maplibregl.Popup({ offset: 25 }).setText(
+  '9. Napels');
+
+const marker9 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([14.305573, 40.853294])
+  .setPopup(popup9)
+  .addTo(maplibrekaart);
+
+
+const popup10 = new maplibregl.Popup({ offset: 25 }).setText(
+  '10. Brescia');
+
+const marker10 = new maplibregl.Marker({
+  color: '##2596be'
+})
+  .setLngLat([10.211802, 45.541553])
+  .setPopup(popup10)
+  .addTo(maplibrekaart);
+
 
 
 //Leaflet kaart//
@@ -238,11 +295,11 @@ const marker5 = new maplibregl.Marker({
 
 const leafLet = L.map('leafletmap2').setView([41.902782, 12.496366], 5);
 var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
-	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	subdomains: 'abcd',
-	minZoom: 0,
-	maxZoom: 20,
-	ext: 'png'
+  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  subdomains: 'abcd',
+  minZoom: 0,
+  maxZoom: 20,
+  ext: 'png'
 }).addTo(leafLet);
 
 L.tileLayer.wms('http://localhost:8001/geoserver/ows', {
@@ -258,7 +315,7 @@ L.tileLayer.wms('http://localhost:8001/geoserver/ows', {
 
 //leafletmap
 //initialize the map         
-const zesdeleafletkaart = L.map('leafletmap3').setView([41.29246, 12.5736108], 6);
+const zesdeleafletkaart = L.map('leafletmap3').setView([41.29246, 12.5736108], 8);
 //Create baselayer - tiles         
 const backgroundMap3 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a>contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -270,8 +327,22 @@ backgroundMap3.addTo(zesdeleafletkaart);
 
 let mijngeojsonlaag = L.geoJSON().addTo(zesdeleafletkaart);
 
-let woonplaatsen = ['Haarlemmermeer', 'Almere', 'Amsterdam'];
-let woonplaatsNaam = woonplaatsen[2];
+let woonplaatsen = ['Schiphol', 'Amsterdam', 'Rotterdam', 'Eindhoven', 'Maastricht'];
+let woonplaatsNaam = woonplaatsen[1];
+
+for (let i = 0; i < woonplaatsen.length; i++) {
+  const element = woonplaatsen[i];
+  var mijnButton = document.createElement("button");
+  mijnButton.className = "mijnknoppen"
+  let textnode = document.createTextNode(woonplaatsen[i]);
+  mijnButton.appendChild(textnode);
+  mijnButton.onclick = function () { vraagWoonplaatsOp(woonplaatsen[i]) }
+  document.getElementById('knoppen').appendChild(mijnButton);
+}
+
+
+function vraagWoonplaatsOp(woonplaatsNaam) {
+  console.log('Test')
 
 //Met de free service een ID ophalen
 fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${woonplaatsNaam}&rows=10`)
@@ -284,6 +355,7 @@ fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${woonplaatsNaam
     //vraag de data op en zet op de kaart
     tekenDataopKaart(id);
   })
+};
 
 //Aan de hand van een ID de geometrie ophalen en op de kaart zetten. En vliegen naar die locatie.
 function tekenDataopKaart(woonplaatsId) {
@@ -308,6 +380,11 @@ function tekenDataopKaart(woonplaatsId) {
 
     )
 }
+
+
+
+
+
 
 
 
