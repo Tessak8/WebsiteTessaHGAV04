@@ -172,17 +172,19 @@ require(
 //Maplibre kaart
 var maplibrekaart = new maplibregl.Map({
   container: 'maplibrekaart',
-  style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
+  style: 'https://api.maptiler.com/maps/bright-v2/style.json?key=VqIB07P2FUCOQPgSuC0w', // stylesheet location
   center: [12.496366, 41.902782], // starting position [lng, lat]
   zoom: 4.5 // starting zoom
 
 })
 
+
+
 const popup1 = new maplibregl.Popup({ offset: 25 }).setText(
   '1. Venetië');
 
 const marker1 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#00A5E3'
 })
   .setLngLat([12.327145, 45.438759])
   .setPopup(popup1)
@@ -192,7 +194,7 @@ const popup2 = new maplibregl.Popup({ offset: 25 }).setText(
   '2. Bolzano');
 
 const marker2 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#FFD872'
 })
   .setLngLat([11.350000, 46.500000])
   .setPopup(popup2)
@@ -203,7 +205,7 @@ const popup3 = new maplibregl.Popup({ offset: 25 }).setText(
   '3. Rome');
 
 const marker3 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#FF96C5'
 })
   .setLngLat([12.496365500000024, 41.90278349999999])
   .setPopup(popup3)
@@ -215,7 +217,7 @@ const popup4 = new maplibregl.Popup({ offset: 25 }).setText(
   '4. Trento');
 
 const marker4 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#6C88C4'
 })
   .setLngLat([11.116667, 46.066666])
   .setPopup(popup4)
@@ -227,7 +229,7 @@ const popup5 = new maplibregl.Popup({ offset: 25 }).setText(
   '5. Verona');
 
 const marker5 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#FF5768'
 })
   .setLngLat([10.983333, 45.433334])
   .setPopup(popup5)
@@ -238,7 +240,7 @@ const popup6 = new maplibregl.Popup({ offset: 25 }).setText(
   '6. Rimini');
 
 const marker6 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#00B0BA'
 })
   .setLngLat([12.568333, 44.059444])
   .setPopup(popup6)
@@ -249,7 +251,7 @@ const popup7 = new maplibregl.Popup({ offset: 25 }).setText(
   '7. Milaan');
 
 const marker7 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#4DD091'
 })
   .setLngLat([9.188540, 45.464664])
   .setPopup(popup7)
@@ -260,7 +262,7 @@ const popup8 = new maplibregl.Popup({ offset: 25 }).setText(
   '8. Florence');
 
 const marker8 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#FFA23A'
 })
   .setLngLat([11.255814, 43.769562])
   .setPopup(popup8)
@@ -271,7 +273,7 @@ const popup9 = new maplibregl.Popup({ offset: 25 }).setText(
   '9. Napels');
 
 const marker9 = new maplibregl.Marker({
-  color: '##2596be'
+  color: '#967ADC'
 })
   .setLngLat([14.305573, 40.853294])
   .setPopup(popup9)
@@ -290,9 +292,38 @@ const marker10 = new maplibregl.Marker({
 
 
 
+
+//foto carrousel bij de tabel van het werelderfgoed
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+
+
 //Leaflet kaart//
-
-
 const leafLet = L.map('leafletmap2').setView([41.902782, 12.496366], 5);
 var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -301,6 +332,8 @@ var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/to
   maxZoom: 20,
   ext: 'png'
 }).addTo(leafLet);
+
+//Toevoegen van geoserver aan leaflet kaart //
 
 L.tileLayer.wms('http://localhost:8001/geoserver/ows', {
   'layers': 'webcartografieHGAV:italieprovincies',
@@ -311,6 +344,82 @@ L.tileLayer.wms('http://localhost:8001/geoserver/ows', {
   'transparent': true,
 
 }).addTo(leafLet);
+
+//Toevoegen van zelfgemaakte cirkels aan de leaflet kaart, zodat hij niet leeg is//
+var circle1 = L.circle([45.464664, 9.188540], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle1.bindPopup("Milaan - Risotto");
+
+
+var circle2 = L.circle([44.414165, 8.942184], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle2.bindPopup("Genua - Pesto");
+
+
+var circle3= L.circle([44.801472, 10.328000], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle3.bindPopup("Parma - Parma ham");
+
+var circle4= L.circle([41.902782, 12.496366], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle4.bindPopup("Rome - Pasta carbonara");
+
+var circle5= L.circle([40.853294, 14.305573], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle5.bindPopup("Napels - Pizza");
+
+var circle6= L.circle([45.438759, 12.327145], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle6.bindPopup("Venetië - Tiramisu");
+
+var circle7= L.circle([46.066666, 11.116667], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle7.bindPopup("Trente - Polenta");
+
+var circle8= L.circle([44.498955, 11.327591], {
+  color: 'blue',
+  fillColor: '#66CCFF',
+  fillOpacity: 0.5,
+  radius: 10000
+}).addTo(leafLet);
+
+circle8.bindPopup("Bologna - Lasagne bolognese");
+
 
 
 //leafletmap
@@ -380,8 +489,6 @@ function tekenDataopKaart(woonplaatsId) {
 
     )
 }
-
-
 
 
 

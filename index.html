@@ -42,13 +42,10 @@
     <nav>
       <img src="./afbeeldingen/websitelogo.png" class="logo" alt="Logo">
       <ul>
-        <li><a href="#nyc">Home</a></li>
-        <li><a href="#nyc">Pieken en dalen</a></li>
-        <li><a href="">Meerdere landen in een</a></li>
-        <li><a href="">Vervoer</a></li>
-        <li><a href="">Populairste steden</a></li>
-        <li><a href="#intro">Provincies</a></li>
-        <li><a href="#intro">Bezoek ons!</a></li>
+        <li><a href="">Home</a></li>
+        <li><a href="">Kaarten</a></li>
+        <li><a href="">Data visualisaties</a></li>
+        <li><a href="">Over</a></li>
       </ul>
 
     </nav>
@@ -174,10 +171,49 @@
   <div class="row">
     <div class="tweekolommen">
 
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="./afbeeldingen/Matera.jpg" style="width:100%">
+          <div class="text">Matera</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="./afbeeldingen/Etna.jpg" style="width:100%">
+          <div class="text">Etna</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 4</div>
+          <img src="./afbeeldingen/Castel del monte.jpg" style="width:100%">
+          <div class="text">Castel del monte</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 4</div>
+          <img src="./afbeeldingen/venetie.jpg" style="width:100%">
+          <div class="text">Venetië en de lagune</div>
+        </div>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+
+      <br> </br>
+
       <h2>Het land met het meeste werelderfgoed</h2>
       <p>
         Iedereen weet dat wel dat Italië veel geschiedenis, kunst en cultuur kent.
         Maar wat veel mensen niet weten is dat Italië het land is met het meeste UNESCO werelderfgoed!
+        <br></br>
         Met maar liefst 58 locaties verslaat Italië net China met 56.
       </p>
     </div>
@@ -224,9 +260,16 @@
 
   <div class="row">
     <div class="tweekolommen">
-      <h2>Tekst over de kaart</h2>
+      <h2> Pizza, pasta en tiramisu</h2>
       <p>
-        (In deze kaart zit een geoserver kaart verwerkt die niet zichtbaar is).
+        Italië is een land met een echte voedselcultuur. 
+        Iedereen kent natuurlijk de pizza of de tiramisu, maar waar komen deze iconische gerechten eigenlijk vandaan?
+        <br> </br>
+        Naast de gerechten en producten die in een specifieke stad zijn ontstaan, zijn er ook veel streekproducten. 
+        Zo staat de regio Piemonte bij Turijn bekend om zijn truffels en hazelnoten. 
+        De amalfikust om zijn limoncello en het eiland Sicilië om zijn ijs (gelato) en cannelloni.
+        <br> </br>
+        (In deze kaart zit ook een geoserver kaartlaag met de provincies van Italië verwerkt die niet zichtbaar is).
       </p>
     </div>
 
@@ -251,16 +294,17 @@
     <div class="tweekolommen2">
       <h2>Vliegen naar Italië</h2>
       <p>
-        Als je naar Italië toe wilt reizen, kan dat op meerdere manieren. 
+        Als je naar Italië toe wilt reizen, kan dat op meerdere manieren.
         Met de auto, de bus, maar ook met het vliegtuig.
         <br> </br>
-        Op de kaart hiernaast kan je zien met behulp van de knoppen vanaf welke vliegvelden er in Nederland vluchten vertrekken naar en landen vanuit Italië.
+        Op de kaart hiernaast kan je zien met behulp van de knoppen vanaf welke vliegvelden er in Nederland vluchten
+        vertrekken naar en landen vanuit Italië.
         Ook kan er op deze kaart de hoofdstad Amsterdam worden bekeken in vergelijking tot de vliegvelden.
       </p>
       <br> </br>
       <!---knopjes onder leafletkaart-->
-        <div id="knoppen"></div>
-      
+      <div id="knoppen"></div>
+
 
     </div>
 
