@@ -309,16 +309,16 @@ function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
 
 
@@ -366,7 +366,7 @@ var circle2 = L.circle([44.414165, 8.942184], {
 circle2.bindPopup("Genua - Pesto");
 
 
-var circle3= L.circle([44.801472, 10.328000], {
+var circle3 = L.circle([44.801472, 10.328000], {
   color: 'blue',
   fillColor: '#66CCFF',
   fillOpacity: 0.5,
@@ -375,7 +375,7 @@ var circle3= L.circle([44.801472, 10.328000], {
 
 circle3.bindPopup("Parma - Parma ham");
 
-var circle4= L.circle([41.902782, 12.496366], {
+var circle4 = L.circle([41.902782, 12.496366], {
   color: 'blue',
   fillColor: '#66CCFF',
   fillOpacity: 0.5,
@@ -384,7 +384,7 @@ var circle4= L.circle([41.902782, 12.496366], {
 
 circle4.bindPopup("Rome - Pasta carbonara");
 
-var circle5= L.circle([40.853294, 14.305573], {
+var circle5 = L.circle([40.853294, 14.305573], {
   color: 'blue',
   fillColor: '#66CCFF',
   fillOpacity: 0.5,
@@ -393,7 +393,7 @@ var circle5= L.circle([40.853294, 14.305573], {
 
 circle5.bindPopup("Napels - Pizza");
 
-var circle6= L.circle([45.438759, 12.327145], {
+var circle6 = L.circle([45.438759, 12.327145], {
   color: 'blue',
   fillColor: '#66CCFF',
   fillOpacity: 0.5,
@@ -402,7 +402,7 @@ var circle6= L.circle([45.438759, 12.327145], {
 
 circle6.bindPopup("Venetië - Tiramisu");
 
-var circle7= L.circle([46.066666, 11.116667], {
+var circle7 = L.circle([46.066666, 11.116667], {
   color: 'blue',
   fillColor: '#66CCFF',
   fillOpacity: 0.5,
@@ -411,7 +411,7 @@ var circle7= L.circle([46.066666, 11.116667], {
 
 circle7.bindPopup("Trente - Polenta");
 
-var circle8= L.circle([44.498955, 11.327591], {
+var circle8 = L.circle([44.498955, 11.327591], {
   color: 'blue',
   fillColor: '#66CCFF',
   fillOpacity: 0.5,
@@ -453,17 +453,17 @@ for (let i = 0; i < woonplaatsen.length; i++) {
 function vraagWoonplaatsOp(woonplaatsNaam) {
   console.log('Test')
 
-//Met de free service een ID ophalen
-fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${woonplaatsNaam}&rows=10`)
-  .then(response => response.json())
-  .then(data => {
-    //Pak het id nr van het eerste object wat terug komt
-    console.log(data.response.docs[0].id);
-    let id = data.response.docs[0].id
+  //Met de free service een ID ophalen
+  fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${woonplaatsNaam}&rows=10`)
+    .then(response => response.json())
+    .then(data => {
+      //Pak het id nr van het eerste object wat terug komt
+      console.log(data.response.docs[0].id);
+      let id = data.response.docs[0].id
 
-    //vraag de data op en zet op de kaart
-    tekenDataopKaart(id);
-  })
+      //vraag de data op en zet op de kaart
+      tekenDataopKaart(id);
+    })
 };
 
 //Aan de hand van een ID de geometrie ophalen en op de kaart zetten. En vliegen naar die locatie.
